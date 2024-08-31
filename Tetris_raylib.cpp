@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <raylib.h>
+#include <grid.h>
+using namespace std;
 
 int main()
 {
@@ -10,6 +12,8 @@ int main()
     SetTargetFPS(60);// must set so game will run- otherwise stuck at startuo - BEFORE GAME LOOP
     // Struct color = {R,G,B,alpha} - 0-255 values, alpha is transparancy
     Color darkBlue = { 50,50,127,255 };
+    Grid grid = Grid();// create enpty grid
+    grid.print();
     while (WindowShouldClose() == false)// will run until esc key is pressed
     {
         BeginDrawing();//creates blank canvas so we can draw

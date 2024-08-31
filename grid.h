@@ -4,11 +4,14 @@ class Grid {
 
 public:
 	Grid();
+	void Initialize();
 	int grid[20][10];
-
+	void print();
+	int GetRows();
+	int GetColms();
 private:
-	int nRows;
-	int nCols;
-	int cellsize;
+	int nRows =20;
+	int nCols =10;
+	int cellsize =30;
 
 };
