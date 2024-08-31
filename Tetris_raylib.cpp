@@ -13,7 +13,12 @@ int main()
     // Struct color = {R,G,B,alpha} - 0-255 values, alpha is transparancy
     Color darkBlue = { 50,50,127,255 };
     Grid grid = Grid();// create enpty grid
+    grid.grid[1][0] = 2;
+    grid.grid[1][7] = 3;
+    grid.grid[5][8] = 5;
+    grid.grid[9][9] = 7;
     grid.print();
+
     while (WindowShouldClose() == false)// will run until esc key is pressed
     {
         BeginDrawing();//creates blank canvas so we can draw

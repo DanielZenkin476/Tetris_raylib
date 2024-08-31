@@ -128,11 +128,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="colors.cpp" />
     <ClCompile Include="grid.cpp" />
+    <ClCompile Include="Position.cpp" />
     <ClCompile Include="Tetris_raylib.cpp" />
+    <ClCompile Include="tetromino.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="colors.h" />
     <ClInclude Include="grid.h" />
+    <ClInclude Include="Position.h" />
+    <ClInclude Include="tetromino.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
