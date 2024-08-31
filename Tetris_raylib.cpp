@@ -8,7 +8,7 @@ using namespace std;
 
 int main()
 {
-    InitWindow(500, 600, "raylib Tetris");// open window size 300x600 
+    InitWindow(300, 600, "raylib Tetris");// open window size 300x600 
     SetTargetFPS(60);// must set so game will run- otherwise stuck at startuo - BEFORE GAME LOOP
     // Struct color = {R,G,B,alpha} - 0-255 values, alpha is transparancy
     Color darkBlue = { 50,50,127,255 };
@@ -18,7 +18,7 @@ int main()
     {
         BeginDrawing();//creates blank canvas so we can draw
         ClearBackground(darkBlue);// change backround color
-
+        grid.Draw();
 
         EndDrawing();// end canvas drawing
     }

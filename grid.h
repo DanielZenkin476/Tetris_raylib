@@ -1,5 +1,7 @@
 #pragma once // to make sure header file is included only once in a compalation
-
+#include <vector>
+#include <raylib.h>
+using namespace std; 
 class Grid {
 
 public:
@@ -7,11 +9,11 @@ public:
 	void Initialize();
 	int grid[20][10];
 	void print();
-	int GetRows();
-	int GetColms();
+	std::vector<Color> GetCellcolors();
+	void Draw();
 private:
-	int nRows =20;
-	int nCols =10;
-	int cellsize =30;
-
+	int nRows ;
+	int nCols ;
+	int cellsize ;
+	std::vector<Color> colors;
 };
