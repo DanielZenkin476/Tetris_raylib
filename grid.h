@@ -11,9 +11,12 @@ public:
 	void print();
 	void Draw();
 	bool IsOut(int row, int column);
+	int ClearFullRows();
 private:
-	int nRows ;
-	int nCols ;
-	int cellsize ;
+	int nRows;
+	int nCols;
+	int cellsize;
 	std::vector<Color> colors;
+	bool IsRowFull(int row);
+	void ClearRow(int row);
 };

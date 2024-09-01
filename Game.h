@@ -14,6 +14,7 @@ public:
 	void MoveBlockDown();
 	void HandleInput();
 	Grid grid;
+	bool gameOver;
 
 private:
 	std::vector<tetromino> blocks;
@@ -23,5 +24,6 @@ private:
 	void RotateBlock();
 	void RotateBlockBack();
 	void LockBlock();
+	void Reset();
 };
 

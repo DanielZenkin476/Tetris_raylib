@@ -7,6 +7,7 @@ Game::Game() {
 	blocks = { IBlock(), JBlock(), LBlock(), SBlock(), OBlock(), TBlock(), ZBlock() };// init blocks list
 	currBlock = GetRandomBlock();// get first
 	nextBlock = GetRandomBlock();// get next
+	gameOver = false;
 }
 tetromino Game::GetRandomBlock() {
 	srand((unsigned int)time(NULL));
@@ -22,18 +23,25 @@ void Game::Draw() {
 }
 // movment - left right down , if out of bounds - move back
 void Game::MoveBlockLeft() {
-	currBlock.Move(0, -1);
-	if (IsBlockOut()) currBlock.Move(0, 1);
+	if (!gameOver) {
+		currBlock.Move(0, -1);
+		if (IsBlockOut()) currBlock.Move(0, 1);
+	}
+	
 };
 void Game::MoveBlockRight() {
-	currBlock.Move(0, 1);
-	if (IsBlockOut()) { currBlock.Move(0, -1); }
+	if (!gameOver) {
+		currBlock.Move(0, 1);
+		if (IsBlockOut()) { currBlock.Move(0, -1); }
+	}
 };
 void Game::MoveBlockDown() {
-	currBlock.Move(1, 0);
-	if (IsBlockOut()) {
-		currBlock.Move(-1, 0);
-		LockBlock();
+	if (!gameOver) {
+		currBlock.Move(1, 0);
+		if (IsBlockOut()) {
+			currBlock.Move(-1, 0);
+			LockBlock();
+		}
 	}
 
 };
@@ -41,6 +49,10 @@ void Game::MoveBlockDown() {
 void Game::HandleInput()
 {
 	int keyPressed = GetKeyPressed();
+	if (gameOver && keyPressed != 0) {
+		gameOver = false;
+		Reset();
+	}
 	switch (keyPressed) {
 	case KEY_LEFT:
 		MoveBlockLeft();
@@ -84,4 +96,14 @@ void Game::LockBlock()
 	}
 	currBlock = nextBlock;
 	nextBlock = GetRandomBlock();
+	grid.ClearFullRows();
+	if (IsBlockOut() == true) {
+		gameOver = true;
+	}
+}
+void Game::Reset() {
+	grid.Initialize();
+	blocks = { IBlock(), JBlock(), LBlock(), SBlock(), OBlock(), TBlock(), ZBlock() };// init blocks list
+	currBlock = GetRandomBlock();// get first
+	nextBlock = GetRandomBlock();// get next
 }

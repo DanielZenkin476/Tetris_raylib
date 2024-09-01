@@ -47,9 +47,48 @@ void Grid::Draw() {
 
 bool Grid::IsOut(int row, int col)
 {
-	if (row >= 0 and row < nRows and col >= 0 and col < nCols and grid[row][col] == 0) {
+	if (row >= 0 and row < nRows and col >= 0 and col < nCols and grid[row][col] == 0) {// 0 check to make sure there is no collisions with other exsisting blocks
 		return false;
 	}
 	return true;
 }
+
+int Grid::ClearFullRows()
+{
+	int completed = 0;
+	for (int i = 0; i < nRows; i++) {
+		if (IsRowFull(i)) {
+			ClearRow(i);
+			completed++;
+			i = 0;// back to check from top in case of double complete
+		}
+	}
+	return completed;
+}
+
+bool Grid::IsRowFull(int row)
+{
+	for (int i = 0; i < nCols; i++) {
+		if (grid[row][i] == 0) return false;
+	}
+	return true;
+}
+
+void Grid::ClearRow(int row) {// clears row and moves all rows down 
+	for (int i = 0; i < nCols; i++) {
+		grid[row][i] = 0;
+	}// works 
+	if (row == 0) {
+		// means that game is over
+	}// move row down
+	for (int r = row; r > 0;r--) {
+		for (int i = 0; i < nCols; i++) {
+			grid[r][i] = grid[r - 1][i];
+		}
+	}
+
+}
+
+
+
 
