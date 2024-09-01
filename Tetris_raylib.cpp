@@ -16,8 +16,8 @@ int main()
 
     
     Game game = Game();
-
-
+    double rate = 0.5;
+    double count = 0;
     while (WindowShouldClose() == false)// will run until esc key is pressed
     {
         game.HandleInput();
@@ -25,6 +25,12 @@ int main()
         ClearBackground(darkBlue);// change backround color
         game.Draw();
         EndDrawing();// end canvas drawing
+        count = count + rate;
+        if (count >= 60) {
+            count = 0.0;
+            rate += 0.1;
+            game.MoveBlockDown();
+        }
     }
 
     CloseWindow();//close window
