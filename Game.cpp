@@ -20,7 +20,7 @@ void Game::Draw() {
 	grid.Draw();
 	currBlock.Draw();
 }
-
+// movment - left right down , if out of bounds - move back
 void Game::MoveBlockLeft() {
 	currBlock.Move(0, -1);
 	if (IsBlockOut()) currBlock.Move(0, 1);
@@ -47,6 +47,10 @@ void Game::HandleInput()
 	case KEY_DOWN:
 		MoveBlockDown();
 		break;
+	case KEY_UP:
+		RotateBlock();
+		if (IsBlockOut()) RotateBlockBack();
+		break;
 	}
 }
 
@@ -57,4 +61,13 @@ bool Game::IsBlockOut()
 		if (grid.IsOut(item.row, item.col)) return true;
 	}
 	return false;
+}
+
+void Game::RotateBlock()
+{
+	currBlock.Rotate();
+}
+void Game::RotateBlockBack()
+{
+	currBlock.RotateBack();
 }

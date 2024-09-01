@@ -31,3 +31,11 @@ std::vector<Position> tetromino::GetCellPos() {
 	}
 	return moved;
 }
+void tetromino::Rotate() {
+	rotationState++;
+	rotationState = rotationState % 4;// to reset if bigger then 4
+}
+void tetromino::RotateBack() {
+	rotationState--;
+	rotationState = rotationState % 4;// to reset if bigger then 4
+}

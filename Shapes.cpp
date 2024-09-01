@@ -2,9 +2,9 @@
 #include "Position.h"
 
 
-class LBlock :public tetromino{
+class JBlock :public tetromino{
 public: // must be public const or else permission error
-	LBlock() {
+	JBlock() {
 		id = 1;
 		cells[0] = { Position(0,2),Position(1,0) ,Position(1,1) ,Position(1,2) };
 		cells[1] = { Position(0,1),Position(1,1) ,Position(2,1) ,Position(2,2) };
@@ -13,14 +13,14 @@ public: // must be public const or else permission error
 	}
 };
 
-class JBlock :public tetromino {
+class LBlock :public tetromino {
 public: // must be public const or else permission error
-	JBlock() {
+	LBlock() {
 		id = 2;
 		cells[0] = { Position(0,0),Position(1,0) ,Position(1,1) ,Position(1,2) };
 		cells[1] = { Position(0,1),Position(0,2) ,Position(1,1) ,Position(2,1) };
-		cells[2] = { Position(1,0),Position(1,1) ,Position(1,2) ,Position(2,1) };
-		cells[3] = { Position(0,2),Position(1,2) ,Position(2,1) ,Position(2,2) };
+		cells[2] = { Position(1,0),Position(1,1) ,Position(1,2) ,Position(2,2) };
+		cells[3] = { Position(0,1),Position(1,1) ,Position(2,0) ,Position(2,1) };
 	}
 };
 

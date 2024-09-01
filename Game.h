@@ -20,5 +20,7 @@ private:
 	tetromino currBlock;
 	tetromino nextBlock;
 	bool IsBlockOut();
+	void RotateBlock();
+	void RotateBlockBack();
 };
 
