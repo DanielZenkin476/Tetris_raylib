@@ -19,5 +19,6 @@ private:
 	std::vector<tetromino> blocks;
 	tetromino currBlock;
 	tetromino nextBlock;
+	bool IsBlockOut();
 };
 

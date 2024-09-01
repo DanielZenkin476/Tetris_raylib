@@ -7,9 +7,10 @@ class Grid {
 public:
 	Grid();
 	void Initialize();
-	int grid[10][20];
+	int grid[20][10];
 	void print();
 	void Draw();
+	bool IsOut(int row, int column);
 private:
 	int nRows ;
 	int nCols ;

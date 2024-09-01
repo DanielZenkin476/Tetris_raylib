@@ -23,12 +23,15 @@ void Game::Draw() {
 
 void Game::MoveBlockLeft() {
 	currBlock.Move(0, -1);
+	if (IsBlockOut()) currBlock.Move(0, 1);
 };
 void Game::MoveBlockRight() {
 	currBlock.Move(0, 1);
+	if (IsBlockOut()) { currBlock.Move(0, -1); }
 };
 void Game::MoveBlockDown() {
 	currBlock.Move(1, 0);
+	if (IsBlockOut()) currBlock.Move(-1, 0);
 };
 
 void Game::HandleInput()
@@ -45,4 +48,13 @@ void Game::HandleInput()
 		MoveBlockDown();
 		break;
 	}
+}
+
+bool Game::IsBlockOut()
+{
+	std::vector<Position> tiles = currBlock.GetCellPos();
+	for (Position item : tiles) {
+		if (grid.IsOut(item.row, item.col)) return true;
+	}
+	return false;
 }
