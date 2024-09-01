@@ -29,6 +29,7 @@ int main()
     SetTargetFPS(60);// must set so game will run- otherwise stuck at startuo - BEFORE GAME LOOP
     // Struct color = {R,G,B,alpha} - 0-255 values, alpha is transparancy
     
+    Font font = LoadFontEx("Font/hpsimplifiedjpan-regular.ttf", 64, 0, 0);
     Game game = Game();
     double intervalDown = 1.0;
     double interval = 1.0;
@@ -39,8 +40,10 @@ int main()
         if (EventTriggered(interval)) {
             game.MoveBlockDown();
         }
+
         BeginDrawing();//creates blank canvas so we can draw
         ClearBackground(darkBlue);// change backround color
+        DrawTextEx(font, "Score", {355,15},40,2,WHITE);
         game.Draw();
         EndDrawing();// end canvas drawing
         
