@@ -6,7 +6,6 @@
 #include <colors.h>
 #include <Game.h>
 
-
 using namespace std;
 double lastUpdateTime = 0.0;
 
@@ -43,7 +42,24 @@ int main()
 
         BeginDrawing();//creates blank canvas so we can draw
         ClearBackground(darkBlue);// change backround color
-        DrawTextEx(font, "Score", {355,15},40,2,WHITE);
+        DrawTextEx(font, "Score", {365,15},38,2,WHITE);
+        DrawTextEx(font, "Next", { 370,175 }, 38, 2, WHITE);
+        if (game.gameOver) {
+            DrawTextEx(font, "Game Over", { 310,450 }, 40, 2, WHITE);
+        }
+        DrawRectangleRounded({ 320, 55, 170, 60 }, float(0.3), 6, lightBlue);// for score
+        
+        char scoreText[10];
+        sprintf_s(scoreText, "%d", game.score);
+        Vector2 textSize = MeasureTextEx(font, scoreText, 38, 2);
+
+        DrawTextEx(font, scoreText, { 310 +(170-textSize.x)/2,65}, 38, 2, WHITE);//draw score centered
+
+        DrawRectangleRounded({ 320, 270, 170, 180 }, float(0.3),6, lightBlue);// for next
+
+
+
+
         game.Draw();
         EndDrawing();// end canvas drawing
         

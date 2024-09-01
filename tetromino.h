@@ -8,7 +8,7 @@ class tetromino
 {
 public:
 	tetromino();
-	void Draw();
+	void Draw(int offsetx, int offsety);
 	void Move(int row, int col);
 	std::vector<Position> GetCellPos();
 	void Rotate();

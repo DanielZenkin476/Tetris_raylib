@@ -8,6 +8,7 @@ Game::Game() {
 	currBlock = GetRandomBlock();// get first
 	nextBlock = GetRandomBlock();// get next
 	gameOver = false;
+	score = 0;
 }
 tetromino Game::GetRandomBlock() {
 	srand((unsigned int)time(NULL));
@@ -19,7 +20,19 @@ tetromino Game::GetRandomBlock() {
 }
 void Game::Draw() {
 	grid.Draw();
-	currBlock.Draw();
+	currBlock.Draw(0,0);
+	switch (nextBlock.id) {
+	default:
+		nextBlock.Draw(270, 320);
+		break;
+	case 3:
+		nextBlock.Draw(255, 320);
+		break;
+	case 4:
+		nextBlock.Draw(255, 320);
+		break;
+	}
+
 }
 // movment - left right down , if out of bounds - move back
 void Game::MoveBlockLeft() {
@@ -61,6 +74,7 @@ void Game::HandleInput()
 		MoveBlockRight();
 		break;
 	case KEY_DOWN:
+		score += 1;
 		MoveBlockDown();
 		break;
 	case KEY_UP:
@@ -90,13 +104,19 @@ void Game::RotateBlockBack()
 
 void Game::LockBlock()
 {
+	int addScore = 0;
 	std::vector<Position> tiles = currBlock.GetCellPos();
 	for (Position item : tiles) {
 		grid.grid[item.row][item.col] = currBlock.id;
 	}
 	currBlock = nextBlock;
 	nextBlock = GetRandomBlock();
-	grid.ClearFullRows();
+	int complete = grid.ClearFullRows();
+	while (complete >0) {
+		 addScore = addScore + 100 + 50 * (complete-1);
+		 complete--;
+	}
+	score = score + addScore;
 	if (IsBlockOut() == true) {
 		gameOver = true;
 	}

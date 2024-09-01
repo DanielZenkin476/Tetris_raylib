@@ -15,6 +15,7 @@ public:
 	void HandleInput();
 	Grid grid;
 	bool gameOver;
+	int score;
 
 private:
 	std::vector<tetromino> blocks;
