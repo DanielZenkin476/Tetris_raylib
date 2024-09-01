@@ -47,7 +47,7 @@ void Grid::Draw() {
 
 bool Grid::IsOut(int row, int col)
 {
-	if (row >= 0 and row < nRows and col >= 0 and col < nCols) {
+	if (row >= 0 and row < nRows and col >= 0 and col < nCols and grid[row][col] == 0) {
 		return false;
 	}
 	return true;

@@ -22,5 +22,6 @@ private:
 	bool IsBlockOut();
 	void RotateBlock();
 	void RotateBlockBack();
+	void LockBlock();
 };
 

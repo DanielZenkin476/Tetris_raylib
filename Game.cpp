@@ -31,7 +31,11 @@ void Game::MoveBlockRight() {
 };
 void Game::MoveBlockDown() {
 	currBlock.Move(1, 0);
-	if (IsBlockOut()) currBlock.Move(-1, 0);
+	if (IsBlockOut()) {
+		currBlock.Move(-1, 0);
+		LockBlock();
+	}
+
 };
 
 void Game::HandleInput()
@@ -70,4 +74,14 @@ void Game::RotateBlock()
 void Game::RotateBlockBack()
 {
 	currBlock.RotateBack();
+}
+
+void Game::LockBlock()
+{
+	std::vector<Position> tiles = currBlock.GetCellPos();
+	for (Position item : tiles) {
+		grid.grid[item.row][item.col] = currBlock.id;
+	}
+	currBlock = nextBlock;
+	nextBlock = GetRandomBlock();
 }
