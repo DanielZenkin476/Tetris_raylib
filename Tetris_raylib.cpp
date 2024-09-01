@@ -5,6 +5,8 @@
 #include <raylib.h>
 #include <colors.h>
 #include <Game.h>
+
+
 using namespace std;
 double lastUpdateTime = 0.0;
 
@@ -23,7 +25,7 @@ using namespace std;
 
 int main()
 {
-    InitWindow(300, 600, "raylib Tetris");// open window size 300x600 
+    InitWindow(510, 600, "Tetris");// open window size 300x600 
     SetTargetFPS(60);// must set so game will run- otherwise stuck at startuo - BEFORE GAME LOOP
     // Struct color = {R,G,B,alpha} - 0-255 values, alpha is transparancy
     
