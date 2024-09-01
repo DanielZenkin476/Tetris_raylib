@@ -4,8 +4,9 @@
 #include <iostream>
 #include <raylib.h>
 #include <grid.h>
-#include "tetromino.h"
-#include "Shapes.cpp"
+#include <tetromino.h>
+#include <Shapes.cpp>
+#include <colors.h>
 
 using namespace std;
 
@@ -15,11 +16,11 @@ int main()
     SetTargetFPS(60);// must set so game will run- otherwise stuck at startuo - BEFORE GAME LOOP
     // Struct color = {R,G,B,alpha} - 0-255 values, alpha is transparancy
 
-    Color darkBlue = { 50,50,127,255 };
+    Color darkBlue = GetCellcolors()[8];// Backround color
     Grid grid = Grid();// create enpty grid
-    grid.print();
 
-    SBlock block = SBlock();
+    IBlock block =IBlock();
+    block.Move(0,0);// must be to fix bug of spawning wrong
 
     while (WindowShouldClose() == false)// will run until esc key is pressed
     {
@@ -27,6 +28,7 @@ int main()
         ClearBackground(darkBlue);// change backround color
         grid.Draw();
         block.Draw();
+
         EndDrawing();// end canvas drawing
     }
 
