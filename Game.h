@@ -9,6 +9,10 @@ public:
 	Game();
 	tetromino GetRandomBlock();
 	void Draw();
+	void MoveBlockLeft();
+	void MoveBlockRight();
+	void MoveBlockDown();
+	void HandleInput();
 	Grid grid;
 
 private:
@@ -16,3 +20,4 @@ private:
 	tetromino currBlock;
 	tetromino nextBlock;
 };
+

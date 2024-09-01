@@ -20,6 +20,7 @@ int main()
 
     while (WindowShouldClose() == false)// will run until esc key is pressed
     {
+        game.HandleInput();
         BeginDrawing();//creates blank canvas so we can draw
         ClearBackground(darkBlue);// change backround color
         game.Draw();

@@ -20,3 +20,29 @@ void Game::Draw() {
 	grid.Draw();
 	currBlock.Draw();
 }
+
+void Game::MoveBlockLeft() {
+	currBlock.Move(0, -1);
+};
+void Game::MoveBlockRight() {
+	currBlock.Move(0, 1);
+};
+void Game::MoveBlockDown() {
+	currBlock.Move(1, 0);
+};
+
+void Game::HandleInput()
+{
+	int keyPressed = GetKeyPressed();
+	switch (keyPressed) {
+	case KEY_LEFT:
+		MoveBlockLeft();
+		break;
+	case KEY_RIGHT:
+		MoveBlockRight();
+		break;
+	case KEY_DOWN:
+		MoveBlockDown();
+		break;
+	}
+}
