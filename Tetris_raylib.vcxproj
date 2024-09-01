@@ -129,6 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="colors.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="grid.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="Shapes.cpp" />
@@ -137,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="colors.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="grid.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="tetromino.h" />
