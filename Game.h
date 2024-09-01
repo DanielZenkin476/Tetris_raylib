@@ -7,13 +7,9 @@
 class Game{
 public:
 	Game();
-	tetromino GetRandomBlock();
 	void Draw();
-	void MoveBlockLeft();
-	void MoveBlockRight();
 	void MoveBlockDown();
 	void HandleInput();
-	Grid grid;
 	bool gameOver;
 	int score;
 
@@ -26,5 +22,9 @@ private:
 	void RotateBlockBack();
 	void LockBlock();
 	void Reset();
+	void MoveBlockLeft();
+	void MoveBlockRight();
+	tetromino GetRandomBlock();
+	Grid grid;
 };
 

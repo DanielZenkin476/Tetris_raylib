@@ -26,7 +26,7 @@ void Game::Draw() {
 		nextBlock.Draw(270, 320);
 		break;
 	case 3:
-		nextBlock.Draw(255, 320);
+		nextBlock.Draw(255, 340);
 		break;
 	case 4:
 		nextBlock.Draw(255, 320);
