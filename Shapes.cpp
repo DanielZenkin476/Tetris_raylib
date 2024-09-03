@@ -1,9 +1,9 @@
 #include "tetromino.h"
 #include "Position.h"
 
-
+// 7 child classes of tetromino - each one is a diffrent block. cells keep rotation states, O and I block move to be centered.
 class JBlock :public tetromino{
-public: // must be public const or else permission error
+public: 
 	JBlock() {
 		id = 1;
 		cells[0] = { Position(0,2),Position(1,0) ,Position(1,1) ,Position(1,2) };
@@ -14,7 +14,7 @@ public: // must be public const or else permission error
 };
 
 class LBlock :public tetromino {
-public: // must be public const or else permission error
+public: 
 	LBlock() {
 		id = 2;
 		cells[0] = { Position(0,0),Position(1,0) ,Position(1,1) ,Position(1,2) };
@@ -26,7 +26,7 @@ public: // must be public const or else permission error
 
 
 class IBlock :public tetromino {
-public: // must be public const or else permission error
+public: 
 	IBlock() {
 		id = 3;
 		cells[0] = { Position(1,0),Position(1,1) ,Position(1,2) ,Position(1,3) };
@@ -37,15 +37,15 @@ public: // must be public const or else permission error
 	}
 };
 class OBlock :public tetromino {
-public: // must be public const or else permission error
+public: 
 	OBlock() {
 		id = 4;
 		cells[0] = cells[1]= cells[2] = cells[3]= { Position(0, 0), Position(0, 1), Position(1, 0), Position(1, 1) };
-		Move(0, 1);
+		Move(0, 1);//To center
 	}
 };
 class SBlock :public tetromino {
-public: // must be public const or else permission error
+public: 
 	SBlock() {
 		id = 5;
 		cells[0] = { Position(0,1),Position(0,2) ,Position(1,0) ,Position(1,1) };
@@ -55,7 +55,7 @@ public: // must be public const or else permission error
 	}
 };
 class TBlock :public tetromino {
-public: // must be public const or else permission error
+public: 
 	TBlock() {
 		id = 6;
 		cells[0] = { Position(0,1),Position(1,0) ,Position(1,1) ,Position(1,2) };
@@ -65,7 +65,7 @@ public: // must be public const or else permission error
 	}
 };
 class ZBlock :public tetromino {
-public: // must be public const or else permission error
+public: 
 	ZBlock() {
 		id = 7;
 		cells[0] = { Position(0,0),Position(0,1) ,Position(1,1) ,Position(1,2) };

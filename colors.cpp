@@ -1,4 +1,5 @@
 #include <colors.h>
+// Struct color = {R,G,B,alpha} - 0-255 values, alpha is transparancy
 
 const Color darkGrey = { 26, 31, 40, 255 };
 const Color green = { 47, 230, 23, 255 };
@@ -10,6 +11,7 @@ const Color cyan = { 21, 204, 209, 255 };
 const Color blue = { 13, 64, 216, 255 };
 const Color darkBlue = { 50,50,127,255 };
 const Color lightBlue = { 59,85,162,255 };
+
 std::vector<Color> GetCellcolors() {
-	return{ darkGrey, green, red, orange, yellow, purple, cyan, blue ,darkBlue,lightBlue};
+	return{ darkGrey, green, red, orange, yellow, purple, cyan, blue ,darkBlue,lightBlue};// function returns all colors as a vector of colors
 }

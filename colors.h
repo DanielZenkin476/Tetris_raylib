@@ -1,3 +1,4 @@
+// Object to keep Colors for display
 #pragma once
 #include <raylib.h>
 #include<vector>
@@ -14,4 +15,4 @@ extern const Color blue;
 extern const Color darkBlue;
 extern const Color lightBlue;
 
-std::vector<Color> GetCellcolors();
+std::vector<Color> GetCellcolors();// function returns all colors as a vector of colors

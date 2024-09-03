@@ -5,26 +5,27 @@
 #include <tetromino.h>
 
 class Game{
+	// Game Class- main class that is used to run the game
 public:
-	Game();
-	void Draw();
-	void MoveBlockDown();
-	void HandleInput();
-	bool gameOver;
-	int score;
+	Game();//Ctor
+	void Draw();//Draws the Game
+	void MoveBlockDown();// moves current block down
+	void HandleInput();//handles player input
+	bool gameOver;//bool to symbolize game over- true on game over
+	int score;// score of player
 
 private:
-	std::vector<tetromino> blocks;
+	std::vector<tetromino> blocks;//blocks vector to choose from 
 	tetromino currBlock;
 	tetromino nextBlock;
-	bool IsBlockOut();
-	void RotateBlock();
-	void RotateBlockBack();
-	void LockBlock();
-	void Reset();
-	void MoveBlockLeft();
-	void MoveBlockRight();
-	tetromino GetRandomBlock();
-	Grid grid;
+	bool IsBlockOut();//checks if currblock is out of bounds
+	void RotateBlock();// rotates block
+	void RotateBlockBack();// rotates block back
+	void LockBlock();// locks block in place - becomes part of grid
+	void Reset();// resets the game
+	void MoveBlockLeft();// moves block left by 1
+	void MoveBlockRight();// moves block right by 1
+	tetromino GetRandomBlock();// gets random block from vector of blocks blocks
+	Grid grid;// grid used in game
 };
 
