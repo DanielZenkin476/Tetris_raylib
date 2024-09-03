@@ -15,7 +15,6 @@ bool EventTriggered(double interval) {
     double currTime = GetTime();
     if (interval <= currTime - lastUpdateTime) {
         lastUpdateTime = currTime;
-        cout << currTime;
         return true;
     }
     return false;
